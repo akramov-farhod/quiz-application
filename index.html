@@ -34,21 +34,29 @@
       </header>
       <main class="row justify-content-center align-items-center">
         <div id="questionCard" class="col-10">
-          <div class="row">
+          <div id="landingText" class="row">
             <div id="landingTitle" class="col-12">Greetings, User!</div>
             <div id="landingText" class="col-12">
               Here are the instructions on how to use this application.
             </div>
           </div>
           <div class="row justify-content-center">
-            <div type="button" class="col-4 control-buttons btn btn-warning">
+            <div
+              id="startBtn"
+              type="button"
+              class="col-4 control-buttons btn btn-warning"
+            >
               Start
             </div>
-            <div type="button" class="col-4 control-buttons btn btn-warning">
+            <div
+              id="tryAgainBtn"
+              type="button"
+              class="hide col-4 control-buttons btn btn-warning"
+            >
               Try Again
             </div>
           </div>
-          <div id="quizContent" class="row">
+          <div id="quizContent" class="row hide">
             <div id="currentQuestion" class="col">
               What is going to happen if I do this? Very Very Very Very long
               question will there be a space ?
