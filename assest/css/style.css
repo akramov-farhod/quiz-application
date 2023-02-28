@@ -17,6 +17,10 @@ body {
   padding: 0;
 }
 
+#mainContainer {
+  height: 100vh;
+}
+
 #landingTitle {
   text-align: center;
   font-size: 2rem;

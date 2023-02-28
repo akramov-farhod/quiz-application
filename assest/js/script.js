@@ -22,5 +22,10 @@ startBtn.addEventListener("click", () => {
 });
 
 tryAgainBtn.addEventListener("click", () => {
-  document.location.reload();
+  var areYouSure = confirm(
+    "Are you sure you want to restart your Quiz?\nYour current progress will NOT be saved."
+  );
+  if (areYouSure === true) {
+    document.location.reload();
+  }
 });
