@@ -4,25 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Quiz</title>
+    <title>Document</title>
+    <!-- boostrap  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <!-- boostrap  -->
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font  -->
     <link rel="stylesheet" href="./assest/css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <div id="question-container" class="hide">
-        <div id="question">Question</div>
-        <div id="answer-buttons" class="btn-grid">
-          <button class="btn">Answer 1</button>
-          <button class="btn">Answer 2</button>
-          <button class="btn">Answer 3</button>
-          <button class="btn">Answer 4</button>
+    <div class="container-fluid">
+      <header class="row">
+        <div type="button" id="leaderboard" class="col-2 btn btn-warning">
+          Leaderboard
         </div>
-      </div>
-      <div class="controls">
-        <button id="start-btn" class="start-btn btn">Start</button>
-        <button id="next-btn" class="next-btn btn hide">Next</button>
-      </div>
+        <div id="title" class="col-2">Coding Quiz</div>
+        <div id="countdown" class="col-2">Countdown</div>
+      </header>
+      <main class="row justify-content-center align-items-center">
+        <div id="questionCard" class="col-10">
+          <div id="quizContent" class="row">
+            <div>question</div>
+            <div>answers</div>
+          </div>
+        </div>
+      </main>
+      <footer class="row">
+        <div class="col-12">Footer</div>
+      </footer>
     </div>
+    <!-- boostrap  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap  -->
     <script src="./assest/js/script.js"></script>
   </body>
 </html>
