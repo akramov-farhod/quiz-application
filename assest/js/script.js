@@ -5,6 +5,65 @@ var tryAgainBtn = document.getElementById("tryAgainBtn");
 var leaderboard = document.getElementById("leaderboardWrap");
 var landingText = document.getElementById("landingText");
 var quiz = document.getElementById("quizContent");
+var questions = [
+  // question 1
+  {
+    question: "First question of the array",
+    answers: [
+      { text: "Incorrect Answer", correct: false },
+      { text: "Correct Answer", correct: true },
+      { text: "Incorrect Answer", correct: false },
+      { text: "Incorrect Answer", correct: false },
+    ],
+  },
+  // question 1
+  // question 2
+  {
+    question: "Second question of the array",
+    answers: [
+      { text: "Incorrect Answer", correct: false },
+      { text: "Correct Answer", correct: true },
+      { text: "Incorrect Answer", correct: false },
+      { text: "Incorrect Answer", correct: false },
+    ],
+  },
+  // question 2
+  // question 3
+  {
+    question: "Third question of the array",
+    answers: [
+      { text: "Incorrect Answer", correct: false },
+      { text: "Correct Answer", correct: true },
+      { text: "Incorrect Answer", correct: false },
+      { text: "Incorrect Answer", correct: false },
+    ],
+  },
+  // question 3
+  // question 4
+  {
+    question: "Fourth question of the array",
+    answers: [
+      { text: "Incorrect Answer", correct: false },
+      { text: "Correct Answer", correct: true },
+      { text: "Incorrect Answer", correct: false },
+      { text: "Incorrect Answer", correct: false },
+    ],
+  },
+  // question 4
+  // question 5
+  {
+    question: "Fifth question of the array",
+    answers: [
+      { text: "Incorrect Answer", correct: false },
+      { text: "Correct Answer", correct: true },
+      { text: "Incorrect Answer", correct: false },
+      { text: "Incorrect Answer", correct: false },
+    ],
+  },
+  //   question 5
+];
+
+console.log(questions);
 
 leaderboardBtn.addEventListener("click", () => {
   leaderboard.classList.remove("hide");
