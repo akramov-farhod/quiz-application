@@ -6,12 +6,25 @@
 
 :root {
   font-size: 62.5%;
+  --hue-neutral: white;
+  --hue-wrong: lightcoral;
+  --hue-correct: lightgreen;
 }
 
 body {
   font-family: "Roboto Mono", monospace;
   margin: 0;
   padding: 0;
+}
+
+#landingTitle {
+  text-align: center;
+  font-size: 2rem;
+}
+
+#landingText {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 header {
@@ -65,11 +78,38 @@ footer {
 }
 
 .answer {
+  --hue: var(var(--hue-neutral));
   font-size: 1.5rem;
   margin: 10px;
   padding: 5px;
+  background-color: var(--hue);
 }
 
+.answer.correct {
+  --hue: var(--hue-correct);
+}
+.answer.wrong {
+  --hue: var(--hue-wrong);
+}
 .answer:hover {
   background-color: lightgray;
+}
+
+.control-buttons {
+  margin: 5px;
+}
+
+.hide {
+  display: none;
+}
+
+#leaderboardTitle {
+  font-size: 2rem;
+  background-color: darkgray;
+}
+
+.user {
+  font-size: 1.5rem;
+  margin: 10px;
+  padding: 5px;
 }
