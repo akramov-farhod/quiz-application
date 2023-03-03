@@ -56,19 +56,53 @@
               Try Again
             </div>
           </div>
+          <!-- question and answers  -->
           <div id="quizContent" class="row hide">
             <div id="currentQuestion" class="col">
               What is going to happen if I do this? Very Very Very Very long
               question will there be enough space ?
             </div>
             <div id="answersWrap" class="col-12">
-              <div type="button" class="answer">A) Just checking</div>
-              <div type="button" class="answer">B) You think so?</div>
-              <div type="button" class="answer">C) Why is this happening</div>
-              <div type="button" class="answer">D) I totally dislike this</div>
+              <div type="button" id="answer1" class="answer wrong">
+                A) Just checking
+              </div>
+              <div type="button" id="answer2" class="answer correct">
+                B) You think so?
+              </div>
+              <div type="button" id="answer3" class="answer wrong">
+                C) Why is this happening
+              </div>
+              <div type="button" id="answer4" class="answer wrong">
+                D) I totally dislike this
+              </div>
             </div>
           </div>
-          <div id="leaderboardWrap" class="row hide">
+          <!-- user input at the end of the quiz  -->
+          <div id="userInputWrap" class="hide row justify-content-center">
+            <div id="landingTitle" class="col-12">Congradulations, User!</div>
+            <div id="endText" class="col-12">
+              You have successfully answered all the generated questions.<br />
+              Please enter your information to save your score.
+            </div>
+            <div class="col-12">
+              <hr />
+              <p id="endText">
+                Your Score:&emsp;<span id="finalScore">100</span>
+              </p>
+              <hr />
+            </div>
+            <input
+              id="input"
+              class="col-8"
+              type="text"
+              placeholder="Enter your Name"
+            />
+            <div type="button" id="inputSubmit" class="col-2 btn btn-warning">
+              Submit
+            </div>
+          </div>
+          <!-- leaderboard  -->
+          <div id="leaderboardWrap" class="hide row">
             <div id="leaderboardTitle" class="col-10">Leaderboard</div>
             <div
               type="button"
