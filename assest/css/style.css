@@ -9,8 +9,8 @@
   font-size: 62.5%;
   --hue-neutral: white;
   --hue-footer-neutral: darkcyan;
-  --hue-wrong: lightcoral;
-  --hue-correct: lightgreen;
+  --hue-wrong: darkred;
+  --hue-correct: darkgreen;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
   padding: 0;
 }
 
-#mainContainer {
+main {
   height: 100vh;
 }
 
@@ -43,6 +43,9 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
   background-color: darkcyan;
   justify-content: space-between;
 }
@@ -50,10 +53,13 @@ main {
   background-color: lightblue;
 }
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  color: white;
   --hue: var(--hue-footer-neutral);
   background-color: var(--hue);
   height: 40px;
-  color: white;
   font-size: 2rem;
   text-align: center;
 }
@@ -84,7 +90,7 @@ footer {
 }
 
 #countdown {
-  width: auto;
+  width: 250px;
   background-color: white;
   margin: 5px;
   font-size: 2rem;

@@ -25,6 +25,8 @@ var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
 var userInputWrap = document.getElementById("userInputWrap");
+var answerCheck = document.getElementById("footer");
+var timer;
 var currentIndex = 0;
 var currentScore = 100;
 var testQuestions = [
@@ -112,7 +114,19 @@ function score() {
   finalScore.innerText = currentScore;
 }
 
+function startTimer() {
+  currentScore--;
+  countdown.innerText = currentScore;
+
+  if (currentScore <= 0) {
+    countdown.innerHTML = "Time is up!";
+    endOfQuiz();
+    clearInterval(timer);
+  }
+}
+
 startBtn.addEventListener("click", () => {
+  timer = setInterval(startTimer, 1000);
   landingText.classList.add("hide");
   startBtn.classList.add("hide");
   tryAgainBtn.classList.remove("hide");
@@ -132,50 +146,76 @@ tryAgainBtn.addEventListener("click", () => {
 function endOfQuiz() {
   userInputWrap.classList.remove("hide");
   quiz.classList.add("hide");
+  answerCheck.style.backgroundColor = "var(--hue-footer-neutral)";
+  answerCheck.innerText = "Quiz";
   score();
+  return;
 }
 
 answer1.addEventListener("click", () => {
   if (currentIndex >= quizArray.length) {
+    clearInterval(timer);
     endOfQuiz();
     return;
   }
   if (!answer1.classList.contains("correct")) {
     currentScore = currentScore - 10;
     countdown.innerText = currentScore;
+    answerCheck.style.backgroundColor = "var(--hue-wrong)";
+    answerCheck.innerText = "Wrong Answer";
+  } else {
+    answerCheck.style.backgroundColor = "var(--hue-correct)";
   }
   loadQuestion();
 });
 answer2.addEventListener("click", () => {
   if (currentIndex >= quizArray.length) {
+    clearInterval(timer);
     endOfQuiz();
     return;
   }
   if (!answer2.classList.contains("correct")) {
     currentScore = currentScore - 10;
     countdown.innerText = currentScore;
+    answerCheck.style.backgroundColor = "var(--hue-wrong)";
+    answerCheck.innerText = "Wrong Answer";
+  } else {
+    answerCheck.style.backgroundColor = "var(--hue-correct)";
+    answerCheck.innerText = "Correct Answer";
   }
   loadQuestion();
 });
 answer3.addEventListener("click", () => {
   if (currentIndex >= quizArray.length) {
+    clearInterval(timer);
     endOfQuiz();
     return;
   }
   if (!answer3.classList.contains("correct")) {
     currentScore = currentScore - 10;
     countdown.innerText = currentScore;
+    answerCheck.style.backgroundColor = "var(--hue-wrong)";
+    answerCheck.innerText = "Wrong Answer";
+  } else {
+    answerCheck.style.backgroundColor = "var(--hue-correct)";
+    answerCheck.innerText = "Correct Answer";
   }
   loadQuestion();
 });
 answer4.addEventListener("click", () => {
   if (currentIndex >= quizArray.length) {
+    clearInterval(timer);
     endOfQuiz();
     return;
   }
   if (!answer4.classList.contains("correct")) {
     currentScore = currentScore - 10;
     countdown.innerText = currentScore;
+    answerCheck.style.backgroundColor = "var(--hue-wrong)";
+    answerCheck.innerText = "Wrong Answer";
+  } else {
+    answerCheck.style.backgroundColor = "var(--hue-correct)";
+    answerCheck.innerText = "Correct Answer";
   }
   loadQuestion();
 });
