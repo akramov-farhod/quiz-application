@@ -5,6 +5,7 @@ var apiURL =
 var apiCall = fetch(apiURL)
   .then((res) => res.json())
   .then((data) => {
+    console.log("API Questions");
     console.log(data);
     quizArray = data;
   });
@@ -13,9 +14,11 @@ var leaderboardBtn = document.getElementById("leaderboardBtn");
 var countdown = document.getElementById("countdown");
 var finalScore = document.getElementById("finalScore");
 var leaderboardSpoiler = document.getElementById("leaderboardSpoiler");
+var leaderboardClear = document.getElementById("leaderboardClear");
 var startBtn = document.getElementById("startBtn");
 var tryAgainBtn = document.getElementById("tryAgainBtn");
 var leaderboard = document.getElementById("leaderboardWrap");
+var usersWrap = document.getElementById("usersParent");
 var landingText = document.getElementById("landingText");
 var quiz = document.getElementById("quizContent");
 var questionEl = document.getElementById("currentQuestion");
@@ -25,8 +28,12 @@ var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
 var userInputWrap = document.getElementById("userInputWrap");
+var userInput = document.getElementById("input");
+var userInputBtn = document.getElementById("inputSubmit");
 var answerCheck = document.getElementById("footer");
 var timer;
+var leaderboardIndex = 0;
+var leaderboardList = [];
 var currentIndex = 0;
 var currentScore = 100;
 var testQuestions = [
@@ -86,6 +93,14 @@ var testQuestions = [
   },
   //   question 5
 ];
+var localStorageArray = JSON.parse(localStorage.getItem("usersArray"));
+console.log("Local Storage Array");
+console.log(localStorageArray);
+
+$(document).ready(function () {
+  localStorageArray.forEach(loadLeaderboard);
+  leaderboardList = localStorageArray;
+});
 
 leaderboardBtn.addEventListener("click", () => {
   leaderboard.classList.remove("hide");
@@ -94,6 +109,16 @@ leaderboardBtn.addEventListener("click", () => {
 leaderboardSpoiler.addEventListener("click", () => {
   leaderboard.classList.add("hide");
 });
+leaderboardClear.addEventListener("click", () => {
+  var clearCheck = confirm("Are you certain about clearing your Leaderboard?");
+  console.log(clearCheck);
+  if (!clearCheck) {
+    return;
+  } else {
+    location.reload();
+    localStorage.clear();
+  }
+});
 
 function loadQuestion() {
   questionEl.innerText = quizArray[currentIndex].question;
@@ -101,10 +126,8 @@ function loadQuestion() {
   answer2.innerText = quizArray[currentIndex].correctAnswer;
   answer3.innerText = quizArray[currentIndex].incorrectAnswers[1];
   answer4.innerText = quizArray[currentIndex].incorrectAnswers[2];
-  console.log(quizArray[0].question);
   if (currentIndex < quizArray.length) {
     currentIndex = currentIndex + 1;
-    console.log(currentIndex);
   }
   return;
 }
@@ -145,6 +168,7 @@ tryAgainBtn.addEventListener("click", () => {
 
 function endOfQuiz() {
   userInputWrap.classList.remove("hide");
+  leaderboard.classList.remove("hide");
   quiz.classList.add("hide");
   answerCheck.style.backgroundColor = "var(--hue-footer-neutral)";
   answerCheck.innerText = "Quiz";
@@ -218,4 +242,35 @@ answer4.addEventListener("click", () => {
     answerCheck.innerText = "Correct Answer";
   }
   loadQuestion();
+});
+
+function loadLeaderboard(currentItem) {
+  var nameDiv = document.createElement("div");
+  var scoreDiv = document.createElement("div");
+  var hr = document.createElement("hr");
+  nameDiv.classList.add("user");
+  scoreDiv.classList.add("user");
+  usersWrap.append(nameDiv);
+  usersWrap.append(scoreDiv);
+  usersWrap.append(hr);
+  nameDiv.innerText = `Name: ${currentItem.name}`;
+  scoreDiv.innerText = `Score: ${currentItem.score}`;
+}
+
+function user(name, score) {
+  this.name = `${userInput.value}`;
+  this.score = `${currentScore}`;
+}
+
+userInputBtn.addEventListener("click", () => {
+  var newUser = new user();
+  leaderboardList.unshift(newUser);
+  console.log(leaderboardList);
+  // console.log(localStorageArray);
+  localStorage.setItem("usersArray", JSON.stringify(leaderboardList));
+  alert(`Your Name and Score have been added to the Leaderboard.
+  Name: ${userInput.value} 
+  Score: ${currentScore}`);
+  alert("You will now be redirected back to the very Beginning of the Quiz");
+  location.reload();
 });

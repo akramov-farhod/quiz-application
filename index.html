@@ -36,8 +36,19 @@
         <div id="questionCard" class="col-10">
           <div id="landingText" class="row">
             <div id="landingTitle" class="col-12">Greetings, User!</div>
+            <br>
+            <br>
             <div id="landingText" class="col-12">
-              Here are the instructions on how to use this application.
+              <p id="instructions">Here are the instructions on how to use this application:</p>
+              <ul>              
+                <li>Once the quiz begins you will be presented with 10 randomly generated questions.</li>
+                <li>Countdown is located at the TOP-RIGHT corner of your screen.</li>
+                <li>Countdown will start at 100.</li>
+                <li>Answering incorrectly will deduct 10 points from your current countdown.</li>
+                <li>Once you answer all the questions OR the countdown reaches 0 the quiz will Terminate.</li>
+                <li>At the end of the Quiz you will have the option to save your Name and Countdown Score</li>
+                <li>To begin the Quiz click the START button</li>
+  </ul>
             </div>
           </div>
           <div class="row justify-content-center">
@@ -63,18 +74,10 @@
               question will there be enough space ?
             </div>
             <div id="answersWrap" class="col-12">
-              <div type="button" id="answer1" class="answer wrong">
-                A) Just checking
-              </div>
-              <div type="button" id="answer2" class="answer correct">
-                B) You think so?
-              </div>
-              <div type="button" id="answer3" class="answer wrong">
-                C) Why is this happening
-              </div>
-              <div type="button" id="answer4" class="answer wrong">
-                D) I totally dislike this
-              </div>
+              <div type="button" id="answer1" class="answer wrong"></div>
+              <div type="button" id="answer2" class="answer correct"></div>
+              <div type="button" id="answer3" class="answer wrong"></div>
+              <div type="button" id="answer4" class="answer wrong"></div>
             </div>
           </div>
           <!-- user input at the end of the quiz  -->
@@ -96,14 +99,21 @@
               class="col-8"
               type="text"
               placeholder="Enter your Name"
-            />
+            ></input>
             <div type="button" id="inputSubmit" class="col-2 btn btn-warning">
               Submit
             </div>
           </div>
           <!-- leaderboard  -->
           <div id="leaderboardWrap" class="hide row">
-            <div id="leaderboardTitle" class="col-10">Leaderboard</div>
+            <div
+              type="button"
+              id="leaderboardClear"
+              class="col-2 btn btn-warning"
+            >
+              Clear
+            </div>
+            <div id="leaderboardTitle" class="col-8">Leaderboard</div>
             <div
               type="button"
               id="leaderboardSpoiler"
@@ -112,11 +122,11 @@
               Hide
             </div>
             <div id="usersParent" class="col-12">
+              <!-- <div class="user">Harry Potter</div>
               <div class="user">Harry Potter</div>
               <div class="user">Harry Potter</div>
-              <div class="user">Harry Potter</div>
-              <div class="user">Harry Potter</div>
-            </div>
+              <div class="user">Harry Potter</div> -->
+              </div>
           </div>
         </div>
       </main>
@@ -129,6 +139,9 @@
       crossorigin="anonymous"
     ></script>
     <!-- bootstrap  -->
+    <!-- jQuery Core  -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!-- jQuery Core  -->
     <script src="./assest/js/script.js"></script>
   </body>
 </html>
