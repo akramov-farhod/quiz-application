@@ -94,8 +94,6 @@ var testQuestions = [
   //   question 5
 ];
 var localStorageArray = JSON.parse(localStorage.getItem("usersArray"));
-console.log("Local Storage Array");
-console.log(localStorageArray);
 
 $(document).ready(function () {
   localStorageArray.forEach(loadLeaderboard);
@@ -111,7 +109,6 @@ leaderboardSpoiler.addEventListener("click", () => {
 });
 leaderboardClear.addEventListener("click", () => {
   var clearCheck = confirm("Are you certain about clearing your Leaderboard?");
-  console.log(clearCheck);
   if (!clearCheck) {
     return;
   } else {
@@ -265,8 +262,6 @@ function user(name, score) {
 userInputBtn.addEventListener("click", () => {
   var newUser = new user();
   leaderboardList.unshift(newUser);
-  console.log(leaderboardList);
-  // console.log(localStorageArray);
   localStorage.setItem("usersArray", JSON.stringify(leaderboardList));
   alert(`Your Name and Score have been added to the Leaderboard.
   Name: ${userInput.value} 
